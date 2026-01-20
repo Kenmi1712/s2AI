@@ -1,41 +1,109 @@
-Uncaught SyntaxError: Unexpected token 'export' (at VM1964 utils.js:584:1)Understand this error
-app.js:441 Current item is administrative_boundary_soi
-app.js:1201 Id is : Promise {<rejected>: ReferenceError: deepCopyObj is not defined
-    at createLayerConfigObj (https://vedas.sac.gov.in/vs…}
-vue_2.7.14.js:11 ReferenceError: deepCopyObj is not defined
-    at createLayerConfigObj (layers_config.js:7508:19)
-    at getLayerConfig (layers_config.js:7238:24)
-    at Cr.pushLayer (app.js:1203:37)
-    at Cr.mounted (app.js:442:19)
-vn @ vue_2.7.14.js:11
-pn @ vue_2.7.14.js:11
-fn @ vue_2.7.14.js:11
-(anonymous) @ vue_2.7.14.js:11
-Promise.catch
-dn @ vue_2.7.14.js:11
-Be @ vue_2.7.14.js:11
-(anonymous) @ vue_2.7.14.js:11
-Cr.$mount @ vue_2.7.14.js:11
-Cr.$mount @ vue_2.7.14.js:11
-e._init @ vue_2.7.14.js:11
-Cr @ vue_2.7.14.js:11
-(anonymous) @ app.js:225Understand this error
-layers_config.js:7508 Uncaught (in promise) ReferenceError: deepCopyObj is not defined
-    at createLayerConfigObj (layers_config.js:7508:19)
-    at getLayerConfig (layers_config.js:7238:24)
-    at Cr.pushLayer (app.js:1201:29)
-    at Cr.mounted (app.js:442:19)
-createLayerConfigObj @ layers_config.js:7508
-getLayerConfig @ layers_config.js:7238
-pushLayer @ app.js:1201
-mounted @ app.js:442
-await in mounted
-dn @ vue_2.7.14.js:11
-Be @ vue_2.7.14.js:11
-(anonymous) @ vue_2.7.14.js:11
-Cr.$mount @ vue_2.7.14.js:11
-Cr.$mount @ vue_2.7.14.js:11
-e._init @ vue_2.7.14.js:11
-Cr @ vue_2.7.14.js:11
-(anonymous) @ app.js:225Understand this error
-material.css:1  GET https://fonts.gstatic.com/s/materialsymbolsoutlined/v303/kJF1BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzByHX9rA6RzaxHMPdY43zj-jCxv3fzvRNU22ZXGJpEpjC_1v-p_4MrImHCIJIZrDCvHOej.woff2 net::ERR_CERT_AUTHORITY_INVALID
+const monthToNum = {
+  JAN: "01",
+  FEB: "02",
+  MAR: "03",
+  APR: "04",
+  MAY: "05",
+  JUN: "06",
+  JUL: "07",
+  AUG: "08",
+  SEP: "09",
+  OCT: "10",
+  NOV: "11",
+  DEC: "12",
+};
+
+export async function getAsyncData(url, isText = false) {
+  let response = await fetch(url);
+  let res = isText ? await response.text() : await response.json();
+
+  return res;
+}
+
+export async function getInsatAvlDates(url) {
+  let res = await getAsyncData(url, true);
+
+  let splitFileraw = [];
+  let data = [];
+  splitFileraw = res.split("*");
+  splitFileraw = splitFileraw.filter(function (x) {
+    return x.indexOf("3RIMG") >= 0 && x.indexOf("h5") >= 0;
+  });
+  let splitFilerawLength = splitFileraw.length;
+  for (let i = 0; i <= splitFilerawLength - 1; i++) {
+    if (i == 0) {
+      data[i] = splitFileraw[i].substring(7, 38);
+    } else {
+      data[i] = splitFileraw[i].substring(24, 55);
+    }
+  }
+
+  let insatvisOptions = data.map(function (obj) {
+    let splitdata = obj.split("_");
+
+    //Date Spliting
+    let sdataf = splitdata[1];
+    let sdatafinal = sdataf.substring(0, 9);
+    let year = sdatafinal.substring(5, 9);
+    let month = sdatafinal.substring(2, 5);
+    let date1 = sdatafinal.substring(0, 2);
+
+    //Time Spliting
+    let stime = splitdata[2];
+    let sHrs = stime.substring(0, 2);
+    let sMnt = stime.substring(2, 4);
+    let myMonthNum = monthToNum[month];
+    let dt_str =
+      year + "-" + myMonthNum + "-" + date1 + " " + sHrs + ":" + sMnt;
+
+    let dt = new Date(dt_str);
+    dt.setHours(dt.getHours() + 5);
+    dt.setMinutes(dt.getMinutes() + 30);
+
+    let dtInsat = moment(dt).format("DD-MM-YYYY HH:mm "); //24Hours Time
+    return { lbl: dtInsat, val: date1 + month + year + "_" + stime };
+  });
+
+  //Remove invalid date from date of array
+  let result = insatvisOptions.filter(
+    (x) => x.lbl.toLowerCase() != "invalid date"
+  );
+
+  let sortdDateArray = await sortStringDateArray(result);
+  return sortdDateArray;
+}
+
+export async function getRidamAvlTimestamp(url,datasetId) {
+  
+  let output = await getAsyncData(url+datasetId);
+  console.log('output:::',url+datasetId);
+  let res=output.result[datasetId];
+
+
+
+  let formattedDate  = res.map(item => {
+    // Reformat input string from "YYYYMMDD HH:MM:SS+ZZZZ" to "YYYY-MM-DD HH:MM:SS+ZZZZ"
+    const formattedString = item.replace(/^(\d{4})-(\d{2})-(\d{2}) (\d{2}:\d{2}:\d{2})(\+\d{4})$/, '$1-$2-$3 $4$5');
+    
+    // Create a Date object from the reformatted string
+    
+    
+    // Format the value as "YYYYMMDD HH:MM"
+    const datePart = item.slice(0, 8);
+    let datePart_v = item.slice(0, 4)+"-"+item.slice(4, 6)+"-"+item.slice(6, 9);
+    //console.log("datePart vvv:::",datePart_v)
+    const timePart = item.slice(9, 14).replace(":", ""); // "HHMM"
+    const val = `${datePart_v} ${timePart.slice(0, 2)}:${timePart.slice(2)}`;
+    //console.log("date Part",datePart+timePart);
+    // Return the object with 'lbl' (Date) and 'val' (formatted string)
+    const dateObject = datePart+timePart;
+    return { lbl: val, val:dateObject};
+  });
+  formattedDate.sort((a, b) => Number(b.val) - Number(a.val));
+  
+  return formattedDate;
+
+}
+
+
+
