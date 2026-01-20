@@ -1,268 +1,471 @@
-Tool layer config in set tool layer {…}
-layers_config.js:7136 Monthly Building Dict: {datasetId: 'T6S1P15', fromDate: '20260101', toDate: '20260131', threshold: 0.4}
-vue_2.7.14.js:11 TypeError: Cannot read properties of undefined (reading 'params')
-    at Cr.eval (eval at sc (vue_2.7.14.js:11:104811), <anonymous>:5:6141)
-    at t._render (vue_2.7.14.js:11:45499)
-    at Cr.r (vue_2.7.14.js:11:79396)
-    at t.get (vue_2.7.14.js:11:27998)
-    at t.run (vue_2.7.14.js:11:28731)
-    at Ye (vue_2.7.14.js:11:18719)
-    at Array.<anonymous> (vue_2.7.14.js:11:23024)
-    at _n (vue_2.7.14.js:11:22424)
-vn @ vue_2.7.14.js:11
-pn @ vue_2.7.14.js:11
-fn @ vue_2.7.14.js:11
-t._render @ vue_2.7.14.js:11
-r @ vue_2.7.14.js:11
-t.get @ vue_2.7.14.js:11
-t.run @ vue_2.7.14.js:11
-Ye @ vue_2.7.14.js:11
-(anonymous) @ vue_2.7.14.js:11
-_n @ vue_2.7.14.js:11
-Promise.then
-hn @ vue_2.7.14.js:11
-Cn @ vue_2.7.14.js:11
-Qe @ vue_2.7.14.js:11
-t.update @ vue_2.7.14.js:11
-t.notify @ vue_2.7.14.js:11
-set @ vue_2.7.14.js:11
-Jn.Kn.set @ vue_2.7.14.js:11
-pushLayer @ app.js:1253
-await in pushLayer
-click @ VM1506:5
-dn @ vue_2.7.14.js:11
-r @ vue_2.7.14.js:11
-i._wrapper @ vue_2.7.14.js:11Understand this error
-app.js:13 using clipping layer null
-vue_2.7.14.js:11 TypeError: Cannot read properties of undefined (reading 'params')
-    at Cr.eval (eval at sc (vue_2.7.14.js:11:104811), <anonymous>:5:6141)
-    at t._render (vue_2.7.14.js:11:45499)
-    at Cr.r (vue_2.7.14.js:11:79396)
-    at t.get (vue_2.7.14.js:11:27998)
-    at t.run (vue_2.7.14.js:11:28731)
-    at Ye (vue_2.7.14.js:11:18719)
-    at Array.<anonymous> (vue_2.7.14.js:11:23024)
-    at _n (vue_2.7.14.js:11:22424)
-vn @ vue_2.7.14.js:11
-pn @ vue_2.7.14.js:11
-fn @ vue_2.7.14.js:11
-t._render @ vue_2.7.14.js:11
-r @ vue_2.7.14.js:11
-t.get @ vue_2.7.14.js:11
-t.run @ vue_2.7.14.js:11
-Ye @ vue_2.7.14.js:11
-(anonymous) @ vue_2.7.14.js:11
-_n @ vue_2.7.14.js:11
-Promise.then
-hn @ vue_2.7.14.js:11
-Cn @ vue_2.7.14.js:11
-Qe @ vue_2.7.14.js:11
-t.update @ vue_2.7.14.js:11
-t.$forceUpdate @ vue_2.7.14.js:11
-updateLayerHelper @ app.js:1368
-await in updateLayerHelper
-pushLayer @ app.js:1275
-await in pushLayer
-click @ VM1506:5
-dn @ vue_2.7.14.js:11
-r @ vue_2.7.14.js:11
-i._wrapper @ vue_2.7.14.js:11Understand this error
-vue_2.7.14.js:11 TypeError: Cannot read properties of undefined (reading 'params')
-    at Cr.eval (eval at sc (vue_2.7.14.js:11:104811), <anonymous>:5:6141)
-    at t._render (vue_2.7.14.js:11:45499)
-    at Cr.r (vue_2.7.14.js:11:79396)
-    at t.get (vue_2.7.14.js:11:27998)
-    at t.run (vue_2.7.14.js:11:28731)
-    at Ye (vue_2.7.14.js:11:18719)
-    at Array.<anonymous> (vue_2.7.14.js:11:23024)
-    at _n (vue_2.7.14.js:11:22424)
+<!DOCTYPE html>
+<html lang="en">
 
-wms:1  GET https://vedas.sac.gov.in/ridamserver3/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&name=RDSGrdient&layers=T0S0M0&PROJECTION=EPSG4326&ARGS=mergemethod%3Dmax%3Bdatasetid%3D%7B%7BdatasetId%7D%7D%3Bfromtime%3D%7B%7BfromDate%7D%7D%3Btotime%3D%7B%7BtoDate%7D%7D%3Bthreshold%3D%7B%7Bthreshold%7D%7D&STYLES=0.00E0EFFFF0.1254040FFFF0.2540A8FFFF0.37540FFFFFF0.5A8FFA8FF0.625FFFF40FF0.75FFA800FF0.875FF4000FF1.0FF0000FFnodataFFFFFFFF&WIDTH=256&HEIGHT=256&CRS=EPSG%3A4326&BBOX=22.939453125%2C72.6416015625%2C22.9833984375%2C72.685546875 404 (Not Found)
-Image
-qp @ ol_6.5.0.js:28994
-e.load @ ol_6.5.0.js:18134
-e.loadMoreTiles @ ol_6.5.0.js:19698
-e.handlePostRender @ ol_6.5.0.js:21090
-(anonymous) @ ol_6.5.0.js:21317
-setTimeout
-e.renderFrame_ @ ol_6.5.0.js:21316
-(anonymous) @ ol_6.5.0.js:20735
-requestAnimationFrame
-e.render @ ol_6.5.0.js:21246
-e.handleTileChange_ @ ol_6.5.0.js:21181
-e.handleTileChange @ ol_6.5.0.js:19683
-e.dispatchEvent @ ol_6.5.0.js:14758
-e.changed @ ol_6.5.0.js:17957
-e.handleImageError_ @ ol_6.5.0.js:18115
-(anonymous) @ ol_6.5.0.js:17781
-Promise.catch
-Zi @ ol_6.5.0.js:17776
-e.load @ ol_6.5.0.js:18135
-e.loadMoreTiles @ ol_6.5.0.js:19698
-e.handlePostRender @ ol_6.5.0.js:21090
-(anonymous) @ ol_6.5.0.js:21317
-setTimeout
-e.renderFrame_ @ ol_6.5.0.js:21316
-(anonymous) @ ol_6.5.0.js:20735
-requestAnimationFrame
-e.render @ ol_6.5.0.js:21246
-e.handleTileChange_ @ ol_6.5.0.js:21181
-e.handleTileChange @ ol_6.5.0.js:19683
-e.dispatchEvent @ ol_6.5.0.js:14758
-e.changed @ ol_6.5.0.js:17957
-e.handleImageError_ @ ol_6.5.0.js:18115
-(anonymous) @ ol_6.5.0.js:17781
-Promise.catch
-Zi @ ol_6.5.0.js:17776
-e.load @ ol_6.5.0.js:18135
-e.loadMoreTiles @ ol_6.5.0.js:19698
-e.handlePostRender @ ol_6.5.0.js:21090
-(anonymous) @ ol_6.5.0.js:21317
-setTimeout
-e.renderFrame_ @ ol_6.5.0.js:21316
-(anonymous) @ ol_6.5.0.js:20735
-requestAnimationFrame
-e.render @ ol_6.5.0.js:21246
-e.dispatchEvent @ ol_6.5.0.js:14758
-e.changed @ ol_6.5.0.js:14869
-e.handleLayersAdd_ @ ol_6.5.0.js:19140
-e.dispatchEvent @ ol_6.5.0.js:14758
-e.insertAt @ ol_6.5.0.js:15066
-e.push @ ol_6.5.0.js:15074
-e.addLayer @ ol_6.5.0.js:20855
-updateLayerHelper @ app.js:1357
-pushLayer @ app.js:1275
-await in pushLayer
-click @ VM1506:5
-dn @ vue_2.7.14.js:11
-r @ vue_2.7.14.js:11
-i._wrapper @ vue_2.7.14.js:11Understand this error
-wms:1  GET https://vedas.sac.gov.in/ridamserver3/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&name=RDSGrdient&layers=T0S0M0&PROJECTION=EPSG4326&ARGS=mergemethod%3Dmax%3Bdatasetid%3D%7B%7BdatasetId%7D%7D%3Bfromtime%3D%7B%7BfromDate%7D%7D%3Btotime%3D%7B%7BtoDate%7D%7D%3Bthreshold%3D%7B%7Bthreshold%7D%7D&STYLES=0.00E0EFFFF0.1254040FFFF0.2540A8FFFF0.37540FFFFFF0.5A8FFA8FF0.625FFFF40FF0.75FFA800FF0.875FF4000FF1.0FF0000FFnodataFFFFFFFF&WIDTH=256&HEIGHT=256&CRS=EPSG%3A4326&BBOX=23.1591796875%2C72.3779296875%2C23.203125%2C72.421875 404 (Not Found)
-Image
-qp @ ol_6.5.0.js:28994
-e.load @ ol_6.5.0.js:18134
-e.loadMoreTiles @ ol_6.5.0.js:19698
-e.handlePostRender @ ol_6.5.0.js:21090
-(anonymous) @ ol_6.5.0.js:21317
-setTimeout
-e.renderFrame_ @ ol_6.5.0.js:21316
-(anonymous) @ ol_6.5.0.js:20735
-requestAnimationFrame
-e.render @ ol_6.5.0.js:21246
-e.handleTileChange_ @ ol_6.5.0.js:21181
-e.handleTileChange @ ol_6.5.0.js:19683
-e.dispatchEvent @ ol_6.5.0.js:14758
-e.changed @ ol_6.5.0.js:17957
-e.handleImageError_ @ ol_6.5.0.js:18115
-(anonymous) @ ol_6.5.0.js:17781
-Promise.catch
-Zi @ ol_6.5.0.js:17776
-e.load @ ol_6.5.0.js:18135
-e.loadMoreTiles @ ol_6.5.0.js:19698
-e.handlePostRender @ ol_6.5.0.js:21090
-(anonymous) @ ol_6.5.0.js:21317
-setTimeout
-e.renderFrame_ @ ol_6.5.0.js:21316
-(anonymous) @ ol_6.5.0.js:20735
-requestAnimationFrame
-e.render @ ol_6.5.0.js:21246
-e.handleTileChange_ @ ol_6.5.0.js:21181
-e.handleTileChange @ ol_6.5.0.js:19683
-e.dispatchEvent @ ol_6.5.0.js:14758
-e.changed @ ol_6.5.0.js:17957
-e.handleImageError_ @ ol_6.5.0.js:18115
-(anonymous) @ ol_6.5.0.js:17781
-Promise.catch
-Zi @ ol_6.5.0.js:17776
-e.load @ ol_6.5.0.js:18135
-e.loadMoreTiles @ ol_6.5.0.js:19698
-e.handlePostRender @ ol_6.5.0.js:21090
-(anonymous) @ ol_6.5.0.js:21317
-setTimeout
-e.renderFrame_ @ ol_6.5.0.js:21316
-(anonymous) @ ol_6.5.0.js:20735
-requestAnimationFrame
-e.render @ ol_6.5.0.js:21246
-e.dispatchEvent @ ol_6.5.0.js:14758
-e.changed @ ol_6.5.0.js:14869
-e.handleLayersAdd_ @ ol_6.5.0.js:19140
-e.dispatchEvent @ ol_6.5.0.js:14758
-e.insertAt @ ol_6.5.0.js:15066
-e.push @ ol_6.5.0.js:15074
-e.addLayer @ ol_6.5.0.js:20855
-updateLayerHelper @ app.js:1357
-pushLayer @ app.js:1275
-await in pushLayer
-click @ VM1506:5
-dn @ vue_2.7.14.js:11
-r @ vue_2.7.14.js:11
-i._wrapper @ vue_2.7.14.js:11Understand this error
-wms:1  GET https://vedas.sac.gov.in/ridamserver3/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&name=RDSGrdient&layers=T0S0M0&PROJECTION=EPSG4326&ARGS=mergemethod%3Dmax%3Bdatasetid%3D%7B%7BdatasetId%7D%7D%3Bfromtime%3D%7B%7BfromDate%7D%7D%3Btotime%3D%7B%7BtoDate%7D%7D%3Bthreshold%3D%7B%7Bthreshold%7D%7D&STYLES=0.00E0EFFFF0.1254040FFFF0.2540A8FFFF0.37540FFFFFF0.5A8FFA8FF0.625FFFF40FF0.75FFA800FF0.875FF4000FF1.0FF0000FFnodataFFFFFFFF&WIDTH=256&HEIGHT=256&CRS=EPSG%3A4326&BBOX=22.939453125%2C72.3779296875%2C22.9833984375%2C72.421875 404 (Not Found)
-Image
-qp @ ol_6.5.0.js:28994
-e.load @ ol_6.5.0.js:18134
-e.loadMoreTiles @ ol_6.5.0.js:19698
-e.handlePostRender @ ol_6.5.0.js:21090
-(anonymous) @ ol_6.5.0.js:21317
-setTimeout
-e.renderFrame_ @ ol_6.5.0.js:21316
-(anonymous) @ ol_6.5.0.js:20735
-requestAnimationFrame
-e.render @ ol_6.5.0.js:21246
-e.handleTileChange_ @ ol_6.5.0.js:21181
-e.handleTileChange @ ol_6.5.0.js:19683
-e.dispatchEvent @ ol_6.5.0.js:14758
-e.changed @ ol_6.5.0.js:17957
-e.handleImageError_ @ ol_6.5.0.js:18115
-(anonymous) @ ol_6.5.0.js:17781
-Promise.catch
-Zi @ ol_6.5.0.js:17776
-e.load @ ol_6.5.0.js:18135
-e.loadMoreTiles @ ol_6.5.0.js:19698
-e.handlePostRender @ ol_6.5.0.js:21090
-(anonymous) @ ol_6.5.0.js:21317
-setTimeout
-e.renderFrame_ @ ol_6.5.0.js:21316
-(anonymous) @ ol_6.5.0.js:20735
-requestAnimationFrame
-e.render @ ol_6.5.0.js:21246
-e.handleTileChange_ @ ol_6.5.0.js:21181
-e.handleTileChange @ ol_6.5.0.js:19683
-e.dispatchEvent @ ol_6.5.0.js:14758
-e.changed @ ol_6.5.0.js:17957
-e.handleImageError_ @ ol_6.5.0.js:18115
-(anonymous) @ ol_6.5.0.js:17781
-Promise.catch
-Zi @ ol_6.5.0.js:17776
-e.load @ ol_6.5.0.js:18135
-e.loadMoreTiles @ ol_6.5.0.js:19698
-e.handlePostRender @ ol_6.5.0.js:21090
-(anonymous) @ ol_6.5.0.js:21317
-setTimeout
-e.renderFrame_ @ ol_6.5.0.js:21316
-(anonymous) @ ol_6.5.0.js:20735
-requestAnimationFrame
-e.render @ ol_6.5.0.js:21246
-e.dispatchEvent @ ol_6.5.0.js:14758
-e.changed @ ol_6.5.0.js:14869
-e.handleLayersAdd_ @ ol_6.5.0.js:19140
-e.dispatchEvent @ ol_6.5.0.js:14758
-e.insertAt @ ol_6.5.0.js:15066
-e.push @ ol_6.5.0.js:15074
-e.addLayer @ ol_6.5.0.js:20855
-updateLayerHelper @ app.js:1357
-pushLayer @ app.js:1275
-await in pushLayer
-click @ VM1506:5
-dn @ vue_2.7.14.js:11
-r @ vue_2.7.14.js:11
-i._wrapper @ vue_2.7.14.js:11Understand this error
-vue_2.7.14.js:11 TypeError: Cannot read properties of undefined (reading 'params')
-    at Cr.eval (eval at sc (vue_2.7.14.js:11:104811), <anonymous>:5:6141)
-    at t._render (vue_2.7.14.js:11:45499)
-    at Cr.r (vue_2.7.14.js:11:79396)
-    at t.get (vue_2.7.14.js:11:27998)
-    at t.run (vue_2.7.14.js:11:28731)
-    at Ye (vue_2.7.14.js:11:18719)
-    at Array.<anonymous> (vue_2.7.14.js:11:23024)
-    at _n (vue_2.7.14.js:11:22424)
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="UVA( Unified Viauslization And Analysis) is a unified portal to visualize and analyse data of different domains at single platform.">
+    <meta name="keywords" content="UVA, Visualization, analysis, Unified">
+    <!-- Importing vue lib -->
+    <script src="js/TrustedPolicy.js"></script>
+
+    <script src="js/utils.js"></script>
+
+
+    <script src="js/config.js"></script>
+    <script src="js/legacy_config.js"></script>
+    <script src="js/lib/vue_2.7.14.js"></script>
+    <script src="js/lib/moment.min.js"></script>
+    <!-- importing open layer library and style. -->
+    <link rel="stylesheet" href="css/lib/ol_6.5.0.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/newStyle.css">
+    <link rel="stylesheet" href="css/story_modal.css">
+    <link rel="stylesheet" href="css/switch.css">
+    <link rel="stylesheet" href="css/material.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link href="assets/img/icons/favicon.ico" rel="icon">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"rel="stylesheet"> -->
+    <script src="js/lib/ol_6.5.0.js"></script>
+    <!--add highcharts library from cdn -->
+    <script src="js/lib/highcharts.js"></script>
+    <script src="js/lib/exporting.js"></script>
+    <script src="js/lib/export-data.js"></script>
+    <script src="js/lib/accessibility.js"></script>
+    <!-- add jsPDF library from cdn -->
+    <script src="js/lib/jspdf.umd.min.js"></script>
+
+    <!-- add autotable from cdn -->
+    <script src="js/lib/jspdf.plugin.autotable.min.js"></script>
+
+    <!-- import sheetjs from cdn -->
+    <script lang="javascript" src="js/lib/xlsx.full.min.js"></script>
+
+    <script type="module" src="js/referenceLayers.js"></script>
+    <title>Vedas UVA</title>
+</head>
+<style>
+    #map {
+        height: 96%;
+        width: auto
+    }
+
+    .ol-mouse-position {
+        top: 75px;
+        right: 18px;
+        position: absolute;
+        text-shadow: 1px 1px 12px black;
+        /* color: var(--primary-background); */
+        color: #03128d;
+        font-size: 14px;
+        z-index: 9999;
+        right: 10px;
+        background-color: white;
+        z-index: 9999;
+        padding: 2px 5px;
+        border-radius: 5px;
+    }
+
+    /* .ol-scale-line {
+        bottom: 5% !important;
+    } */
+</style>
+
+<body>
+
+    <div id="app">
+
+        <div v-show="!hideBanner" class="header">
+
+            <div class="header-left header-desktop" style="font-weight:normal; color: #f96f25;">
+                <span v-show="appTitle=='Unified Visualization and Analysis'"
+                    style="flex-grow: 0;">VEDAS&nbsp;&nbsp;</span>
+                <span class="text-gradient">{{appTitle}}</span>
+            </div>
+            <div class="header-left header-mobile" style="font-weight:normal; color: #f96f25;">
+                <span>&nbsp;&nbsp;</span><strong class="text-gradient">{{shortTitle}}</strong>
+                <p class="text-gradient" style="font-size: x-small; font-weight: 700; margin-top: auto; margin-bottom: 0px; margin-left: 14px;">(Unified Visualization and Analysis)</p>
+            </div>
+            <div class="header-center"></div>
+            <div class="header-right">
+                <a href="https://www.sac.gov.in" target="_blank">
+                    <img src="assets/img/logo/sac.png" alt="ISRO Logo" />
+                </a>
+                <a href="https://www.isro.gov.in" target="_blank">
+                    <img src="assets/img/logo/ISRO_logo.png" alt="ISRO Logo" />
+                </a>
+            </div>
+        </div>
+
+        <!-- Buttons like compare/swipe, share and toggle laye controller box -->
+        <div class="action-buttons">
+            <!-- Toggle Button for Mobile -->
+            <span @click="isMenuOpen = !isMenuOpen" class="material-symbols-outlined fab-action-button mobile-toggle">
+                menu
+            </span>
+            <div class="layer-control-icons" :class="{ 'show-icons': isMenuOpen }">
+                <span @click='isShowLayersPanel = !isShowLayersPanel' class="material-symbols-outlined fab-action-button-layer"
+                    title="Toggle layer panel" :class="[isShowLayersPanel? 'layer-on':'layer-off' ]">layers</span>
+                <span @click="prepareStoryId()" class="material-symbols-outlined fab-action-button" title="Share">share</span>
+                <span v-if="!showSwipePanel" @click="openSwipe()" class="material-symbols-outlined fab-action-button"
+                    title="Swipe">compare</span>
+                <span v-if="showSwipePanel" @click="closeSwipe()" style="background-color:crimson; color:white;"
+                    class="material-symbols-outlined fab-action-button" title="Swipe">compare</span>
+                <span class="material-symbols-outlined fab-action-button" title="Help"
+                    onclick="window.open('Satellite Data Visualization (NRT).pdf');">help</span>
+                <span @click="toggleLocationSearch()" class="material-symbols-outlined fab-action-button"
+                    :class="isLocationSearchVisible ? 'layer-on' : 'layer-off'" title="Find Location">location_on</span>
+                <span @click="getLocationSearch" :class="isMyLocationVisible ? 'layer-on' : 'layer-off'"
+                    class="material-symbols-outlined fab-action-button" title="My Location">my_location</span>
+                <span @click="toggleLiveTracking()" :class="isLiveTrackingActive ? 'layer-on' : 'layer-off'"
+                    class="material-symbols-outlined fab-action-button" title="Live Location Tracking">
+                    <span class="material-symbols-outlined">
+                        location_chip
+                    </span>
+                </span>
+            </div>
+        </div>
+
+        <!-- On click compare/swipe panel opens a swipe panel where user can move layer from left to right for analysis. -->
+        <div id="swipePanel" v-if="showSwipePanel">
+            <div style="display:flex;">
+                <span style="color:grey; flex-grow:0;">Swipe</span>&nbsp;&nbsp;
+                <select v-model="swipeLayerConfigId" style="margin-right:20px;" @change="openSwipe()">
+                    <option v-for="(layer,id) in selectedLayerConfigToShow" :value="id" v-if="layer.isShow" :key="id">
+                        {{layer.displayName}}
+                    </option>
+                </select>
+            </div>
+            <div>
+                <input @input="renderMap()" id="swipeInput" type="range" min="0" max="100" step="1"
+                    style="width:100%; margin-right:20px;" />
+            </div>
+        </div>
+
+
+        <!-- Container to show slope chart -->
+        <!-- <div id='chart-modal' v-if="isShowChart">
+        <span class="chart-close" @click="isShowChart = false">&times;</span>
+        <div v-show="loadingChart" id="loading-chart">{{loadingChart}}</div>
+        <div id="chart-container" class="chart-container"></div>
+      </div>
+ -->
+        <div class="backdrop" v-show="loadChartMsg"></div>
+        <div class="chart-modal" id="chartModal" v-show="loadChartMsg">
+            <img src="assets/img/loading2.gif" style="height: 70px;">
+            <p>{{loadChartMsg}}</p>
+        </div>
+
+        <div class="container-new" v-show="isShowToolOutput">
+            <div id="chart-container" style="flex-grow: 1;"></div>
+            <button @click='loadChartMsg="";isShowToolOutput=false;' class="chart-close-button">X</button>
+        </div>
+
+
+        <!-- <div class="chart-container-new" v-if="isShowToolOutput">
+    <span><button @click='isShowToolOutput=false;'class="close-button">&times;</button></span>
+    <div id="chart-container" class="chart" ></div>
+    
+  </div> -->
+
+        <!-- <div class="chart" v-if="isShowToolOutput">
+            <span class="chart-close" ><button @click='isShowToolOutput=false;'class="close-button">X</button></span>  
+            <div id="chart-container" class="chart" ></div>
+            
+        </div> -->
+
+
+        <div id='layer-controller' v-show="isShowLayersPanel">
+            <div id="heading-row">
+                <div class="heading-col layer-panel" @click="isShowLayersPanel=false" title="Toggle layer panel">
+                    <svg height="34" viewBox="0 -960 960 960" width="24">
+                        <path
+                            d="M480-118 120-398l66-50 294 228 294-228 66 50-360 280Zm0-202L120-600l360-280 360 280-360 280Zm0-280Zm0 178 230-178-230-178-230 178 230 178Z" />
+                    </svg>
+                    <span class="heading-span">Layers</span>
+                </div>
+                <div class="heading-col"><button class="btn" @click="showThemeCatalogue=true"> + &nbsp;Add
+                        Layer</button></div>
+            </div>
+
+            <div id="container">
+                <div class="layer-row" v-for="(layer,id) in selectedLayerConfigToShow">
+                    <div class="layer">
+                        <div class="layer-name">{{layer.displayName}}</div>
+
+                        <div style="min-width: 70px;">
+                            <span v-if="layer && layer.tools"
+                                class="material-symbols-outlined-arrow fab-action-arrow span-arrow gear-button"
+                                :data-layer="layer.displayName"
+                                title="Show tool box"
+                                @click="toggleToolbox(layer);runToolAnalysis()">
+                            settings
+                            </span>
+                            <span class=" material-symbols-outlined-arrow fab-action-arrow span-arrow"
+                                title="Move layer up" @click="swapLayers('increase',id)">
+                                arrow_upward
+                            </span>
+                            <span class="material-symbols-outlined-arrow fab-action-arrow span-arrow"
+                                title="Move layer down" @click="swapLayers('decrease',id)">
+                                arrow_downward
+                            </span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" :id="id" :key="id" v-model="layer.isShow" @change="toggleLayer(id)">
+                            <span class="slider round"></span>
+                        </label>
+                        <span style='flex:0' @click="removeLayer(id)"
+                            class="material-symbols-outlined-close fab-action-button-close" title="Close">close</span>
+                    </div>
+
+                    <div class="layer-submenu">
+
+                        <div class='layer-param' v-for="(param,param_key) of layer.parameters "
+                            v-show="!param.showIfVal || 
+                            (param.showIfVal && param.showIfYearVal && param.showIfYearVal == layer.parameters.year.selectedOption.val && (layer.parameters[param.showIfProperty].selectedOption.val==param.showIfVal))
+                            ||(!param.showIfYearVal && param.showIfVal && (layer.parameters[param.showIfProperty].selectedOption.val==param.showIfVal))">
+
+                            <span class="lbl" :style="param.displayNameStyle">{{param.displayName}}</span>
+
+
+                            <button class="button-style" v-show="param.isShowPrevYearOption"
+                                @click="prevYearParamDate(param);updateLayerHelper(id,param_key)">
+                                y&nbsp;&lt;
+                            </button>
+
+                            <button class="button-style" v-show="param.typeOfData == 'date'"
+                                @click="prevParamDate(param,layer.parameters);updateLayerHelper(id,param_key)">
+                                &lt;
+                            </button>
+
+                            <select @change='updateLayerHelper(id,param_key)' v-model="param.selectedOption"
+                                v-if="param.type=='choice'" :style="param.style">
+                                <option v-for="option in param.options" :value="option" :title="option.title"
+                                    :style="option.style">
+                                    {{option?option.lbl:''}}
+                                </option>
+                            </select>
+                            <button class="button-style" v-show="param.typeOfData == 'date'"
+                                @click="nextParamDate(param,layer.parameters);updateLayerHelper(id,param_key)">
+                                &gt;
+                            </button>
+                            <button class="button-style" v-show="param.isShowPrevYearOption"
+                                @click="nextYearParamDate(param);updateLayerHelper(id,param_key)">
+                                &gt;&nbsp;y
+                            </button>
+
+
+                            <button class="button-style" @click="changeDate(param,'prev');updateLayerHelper(id)"
+                                v-if="param.type=='calendar'">
+                                &lt;
+                            </button>
+                            <input type="date" @change='updateLayerHelper(id)' v-model="param.selectedOption.val"
+                                v-if="param.type=='calendar'">
+                            <input type="color" @input='updateLayerHelper(id)' v-model="param.selectedOption.val"
+                                v-if="param.type=='color'">
+                            <input type="number" @input='updateLayerHelper(id)' @keydown='updateLayerHelper(id)'
+                                :style="param.style" v-model="param.selectedOption.val" v-if="param.type=='number'"
+                                :min="param.minVal" :max="param.maxVal" :step="param.step">
+
+                            <button class="button-style" @click="changeDate(param,'next');updateLayerHelper(id)"
+                                v-if="param.type=='calendar'">
+                                &gt;
+                            </button>
+
+                        </div>
+                        <div v-if="layer.legendUrl" :class="[layer.legendHeight?'legendHeight':'legend']">
+                            <img :src='layer.legendUrl'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- On click of tool shows this modal -->
+        <div id="toolModal" v-show="showToolModal"
+        :class="[showToolModal? 'modal-display-block':'modal-display-none' ]">
+        <div class="tool-modal-content">
+            <div style="display: flex;"  >
+                <span id = "tool-modal-title">{{toolLayerConfig.displayName}}</span>
+                <span id = "tool-modal-close"
+                @click='toggleToolbox(false);showToolModal=false;isShowToolOutput=false;removeAllInteractions();loadChartMsg="";toolLayerConfig = {};$nextTick(() => updateGearButtonStyles())'>&times;</span>
+            </div>
+            
+            <div class="tool-content">
+                <span class="tool-label">Tools:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <select v-model="selectedTool" @change="isShowToolOutput=false;runToolAnalysis()">
+                    <option v-for="tool in toolLayerConfig.tools" :value="tool">{{tool.displayName}}</option>
+                </select>
+                <!-- This shows options of selected tool -->
+                <div class="tools-options" v-for="param of selectedTool.params">
+                    <span class="tool-label" style="flex: none;">{{param.displayName}}: &nbsp;</span>
+                    <select v-model="param.selectedOption" @click="runToolAnalysis();isShowToolOutput=false">
+                        <option v-for="op in param.options" :value="op">{{op.displayName}}</option>
+                    </select>
+
+                </div>
+            </div>
+            <div class="tool-content">
+                {{selectedTool.helpText}}
+            </div>
+
+
+            </div>
+        </div>
+        <div v-if="loading" class="loading-backdrop">
+            <div class="loading-spinner"> 
+                <img src="assets/img/loading2a.gif" alt="Loading..." />
+            </div>
+            </div>
+        <!-- on click add layer, displays layer catalogue to add layer for analysis -->
+        <div id="myModal" class="modal" v-show="showThemeCatalogue"
+            :class="[showThemeCatalogue? 'modal-display-block':'modal-display-none' ]">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span v-if="!isShowThemes && (!searchContent || searchContent.trim() === '')"
+                    class="material-symbols-outlined fab-action-button" 
+                    style="color: #0488d0;"
+                    title="Back"
+                        v-show="!isShowThemes" 
+                        @click="isShowThemes=true">arrow_back</span>
+                        <span v-else-if="searchContent && searchContent.trim() !== ''"
+                        class="material-symbols-outlined fab-action-button" style="color: #0488d0;"
+                        v-if="filteredList && filteredList.length> 0" 
+                        title="Back" 
+                        @click="clearSearch()">arrow_back </span>
+                    <input type="text" v-model="searchContent" placeholder="Search.." class="search-text"
+                        @keyup.enter="searchContent" autofocus>
+                    <span class="close" style="color: #0488d0;" @click='showThemeCatalogue=false;isShowThemes=true'>&times;</span>
+                </div>
+                <!-- if searched for layer in serach box. Displays filtered layers -->
+                <div class="sub-theme-menu" v-if="filteredList">
+                    <div class="subtheme-layer" v-for='layer in filteredList'>
+                        <span>{{layer.displayName}} </span>
+                        <button class="btn" @click="pushLayer(layer.id)"> +
+                            &nbsp;Add
+                            </button>
+                    </div>
+                </div>
+                <div class="themes" v-show="isShowThemes && !filteredList">
+                    <div v-for="theme in layerThemes" class="new-sub-theme">
+                        <div class="theme-name">
+                            {{theme.name}}
+                        </div>
+                        <div class='subtheme-name' v-for="sub_theme in theme.subtheme"
+                            @click='sub_theme.isShow_subtheme=true;isShowThemes=false;selectedSubTheme=sub_theme'>
+                            {{sub_theme.displayName}}
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="sub-theme-menu" v-show="!isShowThemes">
+                    <div class="subtheme-layer" v-for="layer in selectedSubTheme.layers">
+                        <span>{{layer.displayName}} </span>
+                        <button class="btn" @click="pushLayer(layer.id)"> + &nbsp; Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- On share modal opens to with link to share and copy option -->
+        <div class='story-modal' :class="[isShowStoryModal? 'modal-display-block':'modal-display-none' ]">
+            <div class="story-modal-content">
+                <div class="story-text">
+                    <div style="flex:1"> Your shareable story link is : </div>
+                    <div class="story-close" @click='isShowStoryModal=false;'>&times;</div>
+                </div>
+                <div style="border: 1px solid rgb(153, 153, 153);
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                padding: 10px;">
+                    <textarea id="auto_resize" ref="textarea" readonly>{{storyLink}}</textarea>
+                    <span @click="navigator.clipboard.writeText(storyLink);"
+                        class="material-symbols-outlined fab-action-button story-copy"
+                        style="font-size: 30px;">content_copy</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- onclick of tools button below tool box modal opens -->
+        <!-- on click add layer, displays layer catalogue to add layer for analysis -->
+        <!-- <div id="toolBoxModal" class="modal-display-block" v-if="showToolBox">
+        Modal content 
+        <div class="modal-content">
+            <div class="modal-header">
+               
+                <select v-for="tool in toolLayerConfig.tools" >
+                    <option>Select</option>
+                    <option>{{tool.name}}</option>
+                </select>
+               
+               
+                <span class="close" @click='showToolBox=false;'>&times;</span>
+            </div>
+       
+        </div>
+    </div> -->
+
+
+
+        <div id='map'>
+            <!-- <a href="https://www.vedas.sac.gov.in" target="_blank"> -->
+                <img class="vedas-logo" src="assets/img/logo/vedas_logo.png" alt="Vedas Logo">
+            <!-- </a> -->
+        </div>
+
+        <div id="mouse-position"></div>
+        <div class="search-area" id="search-area">
+
+
+            <div v-if="isLocationSearchVisible" class="searchBox">
+                <input type="text" style="border: transparent; width: 110px; padding: 3px 10px; font-size: 13px; border-radius: 3px;" placeholder='Longitude,Latitude'
+                    v-model="lonLat" id='search-box' />
+                <button @click="findLocation()" class="goButton">Go</button>
+            </div>
+            <div v-if="isLocationSearchVisible" class="searchBoxAddress">
+                <input type="text" id="search-box-address" v-model="searchQuery" @input="fetchSuggestions"
+                    @keydown="handleKeydown" placeholder="Enter address" style="border: transparent; width: 110px; padding: 3px 10px; font-size: 13px; border-radius: 3px; " />
+                <button @click="findAddress" class="goButton">Go</button>
+
+
+                <div v-if="suggestions.length" class="autocomplete-items">
+                    <div v-for="(item, index) in suggestions" :key="index"
+                        :class="{ 'autocomplete-active': index === currentFocus }" @click="selectAddress(item)">
+                        <strong v-html="highlightMatch(item.placeAddress)"></strong>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div v-if="isMyLocationVisible" class="location-box">
+            <span @click="closeLocationBox" class="material-symbols-outlined-close fab-action-button-close" style="position: absolute; right: 3px;" title="Close">close</span>
+            <p style="margin-bottom: 8px;"><strong>Latitude:</strong> {{ myLat }}</p>
+            <p style="margin-top: 8px;"><strong>Longitude:</strong> {{ myLon }}</p>
+          </div>
+        <div v-show="!hideFooter" class="footer">
+            Copyright © 2025 - All Rights Reserved - Official website of VEDAS, SAC, ISRO, Government of India
+        </div>
+        <!-- Popup Notification -->
+    <div v-if="isPopupVisible" class="popup" :class="{ show: isPopupVisible }">
+        {{ popupMessage }}
+    </div>
+    </div>
+</body>
+<script type="module" src="js/dateConfig.js"></script>
+<script type='module' src="js/app.js"></script>
+<!-- <script type="text/javascript" src="js/lib/google_analytics.js"></script> -->
+<script type='module' src="js/chart.js"></script>
+<script type="module" src="js/layers_config.js"></script>
+<script type="module" src="js/themes_config.js"></script>
+
+
+</html>
