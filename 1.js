@@ -1,6 +1,5 @@
 function replaceUrlAndParamPlaceholders(obj, replacements) {
   if (typeof obj !== 'string') return obj;
-  // ✅ FIXED: Correct regex pattern
   return obj.replace(/\{\{(\w+)\}\}/g, function(match, key) {
     return replacements[key] !== undefined ? replacements[key] : match;
   });
@@ -8,16 +7,12 @@ function replaceUrlAndParamPlaceholders(obj, replacements) {
 
 
 
-function getURLAndParams(layerConfig) {
-  // ... existing code ...
-  
-  let params = replaceParamsPlaceHolders(layerConfig.layerFactoryParams.layerParams, replaceDictionary);
-  
-  // ✅ ADD THIS: Also store replaceDictionary in layerConfig for Vue access
-  layerConfig.replaceDictionary = replaceDictionary;
-  
-  return { url: url, params: params };
-}
+<!-- CHANGE FROM: -->
+{{ layerConfig.parameters.month.params }}
+
+<!-- TO: -->
+{{ layerConfig.parameters.month?.selectedOption?.val }}
+
 
 
 
@@ -26,44 +21,24 @@ s2AIBuildingMonthlyMax: {
   displayName: "S2 AI Building Monthly Max",
   isShow: true,
   type: "tile",
-  autoActivateTool: false,
   
   dateURL: "https://vedas.sac.gov.in/ridamserver3/metadata?settimestamp?prefix",
   datasetId: "T6S1P15",
   splitDateAt: 2,
   
-  // ✅ Initialize replaceDictionary to prevent Vue undefined error
-  replaceDictionary: {
-    fromDate: '20260101',
-    toDate: '20260131',
-    threshold: '0.4',
-    datasetId: 'T6S1P15'
-  },
-  
   uiToFactoryParamsConvertor: function(parameters) {
-    let dict = {
-      datasetId: 'T6S1P15'
-    };
+    let dict = {datasetId: 'T6S1P15'};
     
-    if (parameters.month && parameters.month.selectedOption && parameters.month.selectedOption.val) {
+    if (parameters.month?.selectedOption?.val) {
       let monthVal = parameters.month.selectedOption.val;
       let year = monthVal.substring(0, 4);
       let month = monthVal.substring(4, 6);
-      
       dict.fromDate = year + month + '01';
       let lastDay = new Date(parseInt(year), parseInt(month), 0).getDate();
       dict.toDate = year + month + String(lastDay).padStart(2, '0');
-    } else {
-      dict.fromDate = '20260101';
-      dict.toDate = '20260131';
     }
     
-    if (parameters.pol && parameters.pol.selectedOption && parameters.pol.selectedOption.val) {
-      dict.threshold = parameters.pol.selectedOption.val;
-    } else {
-      dict.threshold = '0.4';
-    }
-    
+    dict.threshold = parameters.pol?.selectedOption?.val || 0.4;
     console.log('Monthly Building Dict:', dict);
     return dict;
   },
@@ -76,26 +51,19 @@ s2AIBuildingMonthlyMax: {
       type: "choice",
       typeOfData: "date",
       options: [],
-      selectedOption: {lbl: "January2026", val: "20260115"},
+      selectedOption: {},
       isShowPrevYearOption: true,
       optionGenerator: async function (url, datasetId, splitDateAt) {
-        try {
-          return await getAvlDates(
-            url, datasetId, splitDateAt, null,
-            {"15": [{fromDt: "01", toDt: "31", valToPush: "15"}]},
-            null, null, "monthYear"
-          );
-        } catch(e) {
-          console.error('Month options error:', e);
-          return [{lbl: "January2026", val: "20260115"}];
-        }
+        return await getAvlDates(url, datasetId, splitDateAt, null,
+          {"15": [{fromDt: "01", toDt: "31", valToPush: "15"}]},
+          null, null, "monthYear");
       }
     },
     pol: {
       displayName: "Threshold",
       type: "choice",
       options: s2building,
-      selectedOption: s2building[2] || {lbl: "0.4", val: 0.4}
+      selectedOption: s2building[2]
     }
   },
 
