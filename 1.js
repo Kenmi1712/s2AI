@@ -9,37 +9,36 @@ s2AIBuildingMonthlyMax: {
   datasetId: "T6S1P15",
   splitDateAt: 2,
   
-  // ✅ CUSTOM CONVERTOR - Handles monthly date conversion
+  // ✅ SELF-CONTAINED custom convertor - doesn't use global uiToFactoryParamsConvertor
   uiToFactoryParamsConvertor: function(parameters) {
-    let replaceDictionary = {};
+    let dict = {};
     
-    // Safe check for month parameter
-    if (parameters && parameters.month && parameters.month.selectedOption) {
+    // Handle month date
+    if (parameters.month && parameters.month.selectedOption && parameters.month.selectedOption.val) {
       let monthVal = parameters.month.selectedOption.val;
+      let year = monthVal.substring(0, 4);
+      let month = monthVal.substring(4, 6);
       
-      if (monthVal && monthVal.length === 8) {
-        let year = monthVal.substring(0, 4);
-        let month = monthVal.substring(4, 6);
-        
-        // Generate full month range
-        replaceDictionary.fromDate = year + month + '01';
-        let lastDay = new Date(parseInt(year), parseInt(month), 0).getDate();
-        replaceDictionary.toDate = year + month + String(lastDay).padStart(2, '0');
-      }
-    }
-    
-    // Safe check for threshold
-    if (parameters && parameters.pol && parameters.pol.selectedOption) {
-      replaceDictionary.threshold = parameters.pol.selectedOption.val;
+      dict.fromDate = year + month + '01';
+      let lastDay = new Date(parseInt(year), parseInt(month), 0).getDate();
+      dict.toDate = year + month + String(lastDay).padStart(2, '0');
     } else {
-      replaceDictionary.threshold = '0.4'; // Default
+      dict.fromDate = '20260101';
+      dict.toDate = '20260131';
     }
     
-    console.log('Monthly Building replaceDictionary:', replaceDictionary);
-    return replaceDictionary;
+    // Handle threshold
+    if (parameters.pol && parameters.pol.selectedOption && parameters.pol.selectedOption.val) {
+      dict.threshold = parameters.pol.selectedOption.val;
+    } else {
+      dict.threshold = '0.4';
+    }
+    
+    console.log('Monthly Building Dict:', dict);
+    return dict;
   },
 
-  legendUrl: "https://vedas.sac.gov.in/ridamserverwms?SERVICE=WMS&REQUEST=GetLegendGraphic&FORMAT=image/png&TRANSPARENT=true&STYLES=[0:FFFFFF00:10:FFFFFF00:20:FFFFFF00:30:FFA500FF:40:FF4500FF:50:DC143CFF:60:DC143CFF:70:8B0000FF:80:8B0000FF];nodata:FFFFFF00&LEGEND_OPTIONS=columnHeight:400;height:100",
+  legendUrl: "https://vedas.sac.gov.in/ridamserverwms?SERVICE=WMS&REQUEST=GetLegendGraphic&FORMAT=image/png&TRANSPARENT=true&STYLES=Buildings910D09FF&LEGENDOPTIONS=columnHeight:500;height:40;width:300",
 
   parameters: {
     month: {
@@ -47,20 +46,24 @@ s2AIBuildingMonthlyMax: {
       type: "choice",
       typeOfData: "date",
       options: [],
-      selectedOption: {},
+      selectedOption: {lbl: "January2026", val: "20260115"},  // ✅ Default value to prevent undefined
       isShowPrevYearOption: true,
-      isSetDefaultDate: false, // ✅ Don't set default to avoid undefined errors
       optionGenerator: async function (url, datasetId, splitDateAt) {
-        return await getAvlDates(
-          url, 
-          datasetId, 
-          splitDateAt, 
-          null,  // allowedDatesArray
-          {"15": [{fromDt: "01", toDt: "31", valToPush: "15"}]},  // Full month → 15th
-          null,  // toDateDiff
-          null,  // filterData
-          "monthYear"  // Label format
-        );
+        try {
+          return await getAvlDates(
+            url, 
+            datasetId, 
+            splitDateAt, 
+            null,
+            {"15": [{fromDt: "01", toDt: "31", valToPush: "15"}]},
+            null,
+            null,
+            "monthYear"
+          );
+        } catch(e) {
+          console.error('Month options error:', e);
+          return [{lbl: "January2026", val: "20260115"}];
+        }
       }
     },
 
@@ -68,7 +71,7 @@ s2AIBuildingMonthlyMax: {
       displayName: "Threshold",
       type: "choice",
       options: s2building,
-      selectedOption: s2building[2] || {lbl: "0.4", val: "0.4"}
+      selectedOption: s2building[2]
     }
   },
 
@@ -80,8 +83,7 @@ s2AIBuildingMonthlyMax: {
       layers: "T0S1M0",
       PROJECTION: "EPSG4326",
       ARGS: "mergemethod=max;datasetid=T6S1P15;fromtime={{fromDate}};totime={{toDate}};threshold={{threshold}}",
-      STYLES: "[0:FFFFFF00:10:FFFFFF00:20:FFFFFF00:30:FFA500FF:40:FF4500FF:50:DC143CFF:60:DC143CFF:70:8B0000FF:80:8B0000FF];nodata:FFFFFF00",
-      LEGENDOPTIONS: "columnHeight:400;height:100"
+      STYLES: "0.00E0EFFFF0.1254040FFFF0.2540A8FFFF0.37540FFFFFF0.5A8FFA8FF0.625FFFF40FF0.75FFA800FF0.875FF4000FF1.0FF0000FFnodataFFFFFFFF"
     }
   },
 
@@ -91,22 +93,25 @@ s2AIBuildingMonthlyMax: {
 },
 
 
-function replaceUrlAndParamPlaceholders(str, replacements) {
-  if (typeof str !== 'string') return str;
-  // ✅ FIXED REGEX: Match {{key}} pattern correctly
-  return str.replace(/\{\{(\w+)\}\}/g, (match, key) => {
-    return replacements[key] !== undefined ? replacements[key] : match;
-  });
-}
 
 
-// Inside formatDates function, add this condition:
+let label;
+if (dateLabelFormat === "AY") {
+  if (parseInt(month) >= 6) {
+    label = "AY " + (parseInt(year) + 1);
+  } else {
+    label = "AY " + parseInt(year) + "-" + (parseInt(year) + 1);
+  }
+} 
+// ✅ ADD ONLY THIS NEW BLOCK - Nothing else changes
 else if (dateLabelFormat === "monthYear") {
   const monthNames = ["January","February","March","April","May","June",
                      "July","August","September","October","November","December"];
   label = `${monthNames[parseInt(month) - 1]}${year}`;
 }
-
-
-
-
+// ✅ END OF NEW BLOCK
+else if (updateDateLabel) {
+  label = updateDateLabel;
+} else {
+  label = year + "-" + month + "-" + dt;
+}
