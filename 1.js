@@ -1,3 +1,26 @@
+function replaceUrlAndParamPlaceholders(obj, replacements) {
+  if (typeof obj !== 'string') return obj;
+  // ✅ FIXED: Correct regex pattern
+  return obj.replace(/\{\{(\w+)\}\}/g, function(match, key) {
+    return replacements[key] !== undefined ? replacements[key] : match;
+  });
+}
+
+
+
+function getURLAndParams(layerConfig) {
+  // ... existing code ...
+  
+  let params = replaceParamsPlaceHolders(layerConfig.layerFactoryParams.layerParams, replaceDictionary);
+  
+  // ✅ ADD THIS: Also store replaceDictionary in layerConfig for Vue access
+  layerConfig.replaceDictionary = replaceDictionary;
+  
+  return { url: url, params: params };
+}
+
+
+
 s2AIBuildingMonthlyMax: {
   id: "s2AIBuildingMonthlyMax",
   displayName: "S2 AI Building Monthly Max",
@@ -9,11 +32,19 @@ s2AIBuildingMonthlyMax: {
   datasetId: "T6S1P15",
   splitDateAt: 2,
   
-  // ✅ SELF-CONTAINED custom convertor - doesn't use global uiToFactoryParamsConvertor
+  // ✅ Initialize replaceDictionary to prevent Vue undefined error
+  replaceDictionary: {
+    fromDate: '20260101',
+    toDate: '20260131',
+    threshold: '0.4',
+    datasetId: 'T6S1P15'
+  },
+  
   uiToFactoryParamsConvertor: function(parameters) {
-    let dict = {};
+    let dict = {
+      datasetId: 'T6S1P15'
+    };
     
-    // Handle month date
     if (parameters.month && parameters.month.selectedOption && parameters.month.selectedOption.val) {
       let monthVal = parameters.month.selectedOption.val;
       let year = monthVal.substring(0, 4);
@@ -27,7 +58,6 @@ s2AIBuildingMonthlyMax: {
       dict.toDate = '20260131';
     }
     
-    // Handle threshold
     if (parameters.pol && parameters.pol.selectedOption && parameters.pol.selectedOption.val) {
       dict.threshold = parameters.pol.selectedOption.val;
     } else {
@@ -46,19 +76,14 @@ s2AIBuildingMonthlyMax: {
       type: "choice",
       typeOfData: "date",
       options: [],
-      selectedOption: {lbl: "January2026", val: "20260115"},  // ✅ Default value to prevent undefined
+      selectedOption: {lbl: "January2026", val: "20260115"},
       isShowPrevYearOption: true,
       optionGenerator: async function (url, datasetId, splitDateAt) {
         try {
           return await getAvlDates(
-            url, 
-            datasetId, 
-            splitDateAt, 
-            null,
+            url, datasetId, splitDateAt, null,
             {"15": [{fromDt: "01", toDt: "31", valToPush: "15"}]},
-            null,
-            null,
-            "monthYear"
+            null, null, "monthYear"
           );
         } catch(e) {
           console.error('Month options error:', e);
@@ -66,12 +91,11 @@ s2AIBuildingMonthlyMax: {
         }
       }
     },
-
     pol: {
       displayName: "Threshold",
       type: "choice",
       options: s2building,
-      selectedOption: s2building[2]
+      selectedOption: s2building[2] || {lbl: "0.4", val: 0.4}
     }
   },
 
@@ -82,7 +106,7 @@ s2AIBuildingMonthlyMax: {
       name: "RDSGrdient",
       layers: "T0S1M0",
       PROJECTION: "EPSG4326",
-      ARGS: "mergemethod=max;datasetid=T6S1P15;fromtime={{fromDate}};totime={{toDate}};threshold={{threshold}}",
+      ARGS: "mergemethod=max;datasetid={{datasetId}};fromtime={{fromDate}};totime={{toDate}};threshold={{threshold}}",
       STYLES: "0.00E0EFFFF0.1254040FFFF0.2540A8FFFF0.37540FFFFFF0.5A8FFA8FF0.625FFFF40FF0.75FFA800FF0.875FF4000FF1.0FF0000FFnodataFFFFFFFF"
     }
   },
@@ -91,27 +115,3 @@ s2AIBuildingMonthlyMax: {
   zIndex: 0,
   tools: []
 },
-
-
-
-
-let label;
-if (dateLabelFormat === "AY") {
-  if (parseInt(month) >= 6) {
-    label = "AY " + (parseInt(year) + 1);
-  } else {
-    label = "AY " + parseInt(year) + "-" + (parseInt(year) + 1);
-  }
-} 
-// ✅ ADD ONLY THIS NEW BLOCK - Nothing else changes
-else if (dateLabelFormat === "monthYear") {
-  const monthNames = ["January","February","March","April","May","June",
-                     "July","August","September","October","November","December"];
-  label = `${monthNames[parseInt(month) - 1]}${year}`;
-}
-// ✅ END OF NEW BLOCK
-else if (updateDateLabel) {
-  label = updateDateLabel;
-} else {
-  label = year + "-" + month + "-" + dt;
-}
