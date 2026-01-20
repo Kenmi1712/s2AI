@@ -1,4 +1,5 @@
-Monthly Building Dict: {fromDate: '20260101', toDate: '20260131', threshold: 0.4}datasetId: "T6S1P15"fromDate: "20260101"threshold: 0.4toDate: "20260131"[[Prototype]]: Object
+Tool layer config in set tool layer {…}
+layers_config.js:7136 Monthly Building Dict: {datasetId: 'T6S1P15', fromDate: '20260101', toDate: '20260131', threshold: 0.4}
 vue_2.7.14.js:11 TypeError: Cannot read properties of undefined (reading 'params')
     at Cr.eval (eval at sc (vue_2.7.14.js:11:104811), <anonymous>:5:6141)
     at t._render (vue_2.7.14.js:11:45499)
@@ -28,7 +29,7 @@ set @ vue_2.7.14.js:11
 Jn.Kn.set @ vue_2.7.14.js:11
 pushLayer @ app.js:1253
 await in pushLayer
-click @ VM1451:5
+click @ VM1506:5
 dn @ vue_2.7.14.js:11
 r @ vue_2.7.14.js:11
 i._wrapper @ vue_2.7.14.js:11Understand this error
@@ -62,7 +63,7 @@ updateLayerHelper @ app.js:1368
 await in updateLayerHelper
 pushLayer @ app.js:1275
 await in pushLayer
-click @ VM1451:5
+click @ VM1506:5
 dn @ vue_2.7.14.js:11
 r @ vue_2.7.14.js:11
 i._wrapper @ vue_2.7.14.js:11Understand this error
@@ -75,32 +76,45 @@ vue_2.7.14.js:11 TypeError: Cannot read properties of undefined (reading 'params
     at Ye (vue_2.7.14.js:11:18719)
     at Array.<anonymous> (vue_2.7.14.js:11:23024)
     at _n (vue_2.7.14.js:11:22424)
-vn @ vue_2.7.14.js:11
-pn @ vue_2.7.14.js:11
-fn @ vue_2.7.14.js:11
-t._render @ vue_2.7.14.js:11
-r @ vue_2.7.14.js:11
-t.get @ vue_2.7.14.js:11
-t.run @ vue_2.7.14.js:11
-Ye @ vue_2.7.14.js:11
-(anonymous) @ vue_2.7.14.js:11
-_n @ vue_2.7.14.js:11
-Promise.then
-hn @ vue_2.7.14.js:11
-Cn @ vue_2.7.14.js:11
-Qe @ vue_2.7.14.js:11
-t.update @ vue_2.7.14.js:11
-t.$forceUpdate @ vue_2.7.14.js:11
-pushLayer @ app.js:1277
-await in pushLayer
-click @ VM1451:5
-dn @ vue_2.7.14.js:11
-r @ vue_2.7.14.js:11
-i._wrapper @ vue_2.7.14.js:11Understand this error
-wms:1  GET https://vedas.sac.gov.in/ridamserver3/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&name=RDSGrdient&layers=T0S1M0&PROJECTION=EPSG4326&ARGS=mergemethod%3Dmax%3Bdatasetid%3DT6S1P15%3Bfromtime%3D%7B%7BfromDate%7D%7D%3Btotime%3D%7B%7BtoDate%7D%7D%3Bthreshold%3D%7B%7Bthreshold%7D%7D&STYLES=0.00E0EFFFF0.1254040FFFF0.2540A8FFFF0.37540FFFFFF0.5A8FFA8FF0.625FFFF40FF0.75FFA800FF0.875FF4000FF1.0FF0000FFnodataFFFFFFFF&WIDTH=256&HEIGHT=256&CRS=EPSG%3A4326&BBOX=23.02734375%2C72.509765625%2C23.115234375%2C72.59765625 404 (Not Found)
+
+wms:1  GET https://vedas.sac.gov.in/ridamserver3/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&name=RDSGrdient&layers=T0S0M0&PROJECTION=EPSG4326&ARGS=mergemethod%3Dmax%3Bdatasetid%3D%7B%7BdatasetId%7D%7D%3Bfromtime%3D%7B%7BfromDate%7D%7D%3Btotime%3D%7B%7BtoDate%7D%7D%3Bthreshold%3D%7B%7Bthreshold%7D%7D&STYLES=0.00E0EFFFF0.1254040FFFF0.2540A8FFFF0.37540FFFFFF0.5A8FFA8FF0.625FFFF40FF0.75FFA800FF0.875FF4000FF1.0FF0000FFnodataFFFFFFFF&WIDTH=256&HEIGHT=256&CRS=EPSG%3A4326&BBOX=22.939453125%2C72.6416015625%2C22.9833984375%2C72.685546875 404 (Not Found)
 Image
 qp @ ol_6.5.0.js:28994
 e.load @ ol_6.5.0.js:18134
+e.loadMoreTiles @ ol_6.5.0.js:19698
+e.handlePostRender @ ol_6.5.0.js:21090
+(anonymous) @ ol_6.5.0.js:21317
+setTimeout
+e.renderFrame_ @ ol_6.5.0.js:21316
+(anonymous) @ ol_6.5.0.js:20735
+requestAnimationFrame
+e.render @ ol_6.5.0.js:21246
+e.handleTileChange_ @ ol_6.5.0.js:21181
+e.handleTileChange @ ol_6.5.0.js:19683
+e.dispatchEvent @ ol_6.5.0.js:14758
+e.changed @ ol_6.5.0.js:17957
+e.handleImageError_ @ ol_6.5.0.js:18115
+(anonymous) @ ol_6.5.0.js:17781
+Promise.catch
+Zi @ ol_6.5.0.js:17776
+e.load @ ol_6.5.0.js:18135
+e.loadMoreTiles @ ol_6.5.0.js:19698
+e.handlePostRender @ ol_6.5.0.js:21090
+(anonymous) @ ol_6.5.0.js:21317
+setTimeout
+e.renderFrame_ @ ol_6.5.0.js:21316
+(anonymous) @ ol_6.5.0.js:20735
+requestAnimationFrame
+e.render @ ol_6.5.0.js:21246
+e.handleTileChange_ @ ol_6.5.0.js:21181
+e.handleTileChange @ ol_6.5.0.js:19683
+e.dispatchEvent @ ol_6.5.0.js:14758
+e.changed @ ol_6.5.0.js:17957
+e.handleImageError_ @ ol_6.5.0.js:18115
+(anonymous) @ ol_6.5.0.js:17781
+Promise.catch
+Zi @ ol_6.5.0.js:17776
+e.load @ ol_6.5.0.js:18135
 e.loadMoreTiles @ ol_6.5.0.js:19698
 e.handlePostRender @ ol_6.5.0.js:21090
 (anonymous) @ ol_6.5.0.js:21317
@@ -119,14 +133,48 @@ e.addLayer @ ol_6.5.0.js:20855
 updateLayerHelper @ app.js:1357
 pushLayer @ app.js:1275
 await in pushLayer
-click @ VM1451:5
+click @ VM1506:5
 dn @ vue_2.7.14.js:11
 r @ vue_2.7.14.js:11
 i._wrapper @ vue_2.7.14.js:11Understand this error
-wms:1  GET https://vedas.sac.gov.in/ridamserver3/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&name=RDSGrdient&layers=T0S1M0&PROJECTION=EPSG4326&ARGS=mergemethod%3Dmax%3Bdatasetid%3DT6S1P15%3Bfromtime%3D%7B%7BfromDate%7D%7D%3Btotime%3D%7B%7BtoDate%7D%7D%3Bthreshold%3D%7B%7Bthreshold%7D%7D&STYLES=0.00E0EFFFF0.1254040FFFF0.2540A8FFFF0.37540FFFFFF0.5A8FFA8FF0.625FFFF40FF0.75FFA800FF0.875FF4000FF1.0FF0000FFnodataFFFFFFFF&WIDTH=256&HEIGHT=256&CRS=EPSG%3A4326&BBOX=22.939453125%2C72.509765625%2C23.02734375%2C72.59765625 404 (Not Found)
+wms:1  GET https://vedas.sac.gov.in/ridamserver3/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&name=RDSGrdient&layers=T0S0M0&PROJECTION=EPSG4326&ARGS=mergemethod%3Dmax%3Bdatasetid%3D%7B%7BdatasetId%7D%7D%3Bfromtime%3D%7B%7BfromDate%7D%7D%3Btotime%3D%7B%7BtoDate%7D%7D%3Bthreshold%3D%7B%7Bthreshold%7D%7D&STYLES=0.00E0EFFFF0.1254040FFFF0.2540A8FFFF0.37540FFFFFF0.5A8FFA8FF0.625FFFF40FF0.75FFA800FF0.875FF4000FF1.0FF0000FFnodataFFFFFFFF&WIDTH=256&HEIGHT=256&CRS=EPSG%3A4326&BBOX=23.1591796875%2C72.3779296875%2C23.203125%2C72.421875 404 (Not Found)
 Image
 qp @ ol_6.5.0.js:28994
 e.load @ ol_6.5.0.js:18134
+e.loadMoreTiles @ ol_6.5.0.js:19698
+e.handlePostRender @ ol_6.5.0.js:21090
+(anonymous) @ ol_6.5.0.js:21317
+setTimeout
+e.renderFrame_ @ ol_6.5.0.js:21316
+(anonymous) @ ol_6.5.0.js:20735
+requestAnimationFrame
+e.render @ ol_6.5.0.js:21246
+e.handleTileChange_ @ ol_6.5.0.js:21181
+e.handleTileChange @ ol_6.5.0.js:19683
+e.dispatchEvent @ ol_6.5.0.js:14758
+e.changed @ ol_6.5.0.js:17957
+e.handleImageError_ @ ol_6.5.0.js:18115
+(anonymous) @ ol_6.5.0.js:17781
+Promise.catch
+Zi @ ol_6.5.0.js:17776
+e.load @ ol_6.5.0.js:18135
+e.loadMoreTiles @ ol_6.5.0.js:19698
+e.handlePostRender @ ol_6.5.0.js:21090
+(anonymous) @ ol_6.5.0.js:21317
+setTimeout
+e.renderFrame_ @ ol_6.5.0.js:21316
+(anonymous) @ ol_6.5.0.js:20735
+requestAnimationFrame
+e.render @ ol_6.5.0.js:21246
+e.handleTileChange_ @ ol_6.5.0.js:21181
+e.handleTileChange @ ol_6.5.0.js:19683
+e.dispatchEvent @ ol_6.5.0.js:14758
+e.changed @ ol_6.5.0.js:17957
+e.handleImageError_ @ ol_6.5.0.js:18115
+(anonymous) @ ol_6.5.0.js:17781
+Promise.catch
+Zi @ ol_6.5.0.js:17776
+e.load @ ol_6.5.0.js:18135
 e.loadMoreTiles @ ol_6.5.0.js:19698
 e.handlePostRender @ ol_6.5.0.js:21090
 (anonymous) @ ol_6.5.0.js:21317
@@ -145,7 +193,76 @@ e.addLayer @ ol_6.5.0.js:20855
 updateLayerHelper @ app.js:1357
 pushLayer @ app.js:1275
 await in pushLayer
-click @ VM1451:5
+click @ VM1506:5
 dn @ vue_2.7.14.js:11
 r @ vue_2.7.14.js:11
 i._wrapper @ vue_2.7.14.js:11Understand this error
+wms:1  GET https://vedas.sac.gov.in/ridamserver3/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&name=RDSGrdient&layers=T0S0M0&PROJECTION=EPSG4326&ARGS=mergemethod%3Dmax%3Bdatasetid%3D%7B%7BdatasetId%7D%7D%3Bfromtime%3D%7B%7BfromDate%7D%7D%3Btotime%3D%7B%7BtoDate%7D%7D%3Bthreshold%3D%7B%7Bthreshold%7D%7D&STYLES=0.00E0EFFFF0.1254040FFFF0.2540A8FFFF0.37540FFFFFF0.5A8FFA8FF0.625FFFF40FF0.75FFA800FF0.875FF4000FF1.0FF0000FFnodataFFFFFFFF&WIDTH=256&HEIGHT=256&CRS=EPSG%3A4326&BBOX=22.939453125%2C72.3779296875%2C22.9833984375%2C72.421875 404 (Not Found)
+Image
+qp @ ol_6.5.0.js:28994
+e.load @ ol_6.5.0.js:18134
+e.loadMoreTiles @ ol_6.5.0.js:19698
+e.handlePostRender @ ol_6.5.0.js:21090
+(anonymous) @ ol_6.5.0.js:21317
+setTimeout
+e.renderFrame_ @ ol_6.5.0.js:21316
+(anonymous) @ ol_6.5.0.js:20735
+requestAnimationFrame
+e.render @ ol_6.5.0.js:21246
+e.handleTileChange_ @ ol_6.5.0.js:21181
+e.handleTileChange @ ol_6.5.0.js:19683
+e.dispatchEvent @ ol_6.5.0.js:14758
+e.changed @ ol_6.5.0.js:17957
+e.handleImageError_ @ ol_6.5.0.js:18115
+(anonymous) @ ol_6.5.0.js:17781
+Promise.catch
+Zi @ ol_6.5.0.js:17776
+e.load @ ol_6.5.0.js:18135
+e.loadMoreTiles @ ol_6.5.0.js:19698
+e.handlePostRender @ ol_6.5.0.js:21090
+(anonymous) @ ol_6.5.0.js:21317
+setTimeout
+e.renderFrame_ @ ol_6.5.0.js:21316
+(anonymous) @ ol_6.5.0.js:20735
+requestAnimationFrame
+e.render @ ol_6.5.0.js:21246
+e.handleTileChange_ @ ol_6.5.0.js:21181
+e.handleTileChange @ ol_6.5.0.js:19683
+e.dispatchEvent @ ol_6.5.0.js:14758
+e.changed @ ol_6.5.0.js:17957
+e.handleImageError_ @ ol_6.5.0.js:18115
+(anonymous) @ ol_6.5.0.js:17781
+Promise.catch
+Zi @ ol_6.5.0.js:17776
+e.load @ ol_6.5.0.js:18135
+e.loadMoreTiles @ ol_6.5.0.js:19698
+e.handlePostRender @ ol_6.5.0.js:21090
+(anonymous) @ ol_6.5.0.js:21317
+setTimeout
+e.renderFrame_ @ ol_6.5.0.js:21316
+(anonymous) @ ol_6.5.0.js:20735
+requestAnimationFrame
+e.render @ ol_6.5.0.js:21246
+e.dispatchEvent @ ol_6.5.0.js:14758
+e.changed @ ol_6.5.0.js:14869
+e.handleLayersAdd_ @ ol_6.5.0.js:19140
+e.dispatchEvent @ ol_6.5.0.js:14758
+e.insertAt @ ol_6.5.0.js:15066
+e.push @ ol_6.5.0.js:15074
+e.addLayer @ ol_6.5.0.js:20855
+updateLayerHelper @ app.js:1357
+pushLayer @ app.js:1275
+await in pushLayer
+click @ VM1506:5
+dn @ vue_2.7.14.js:11
+r @ vue_2.7.14.js:11
+i._wrapper @ vue_2.7.14.js:11Understand this error
+vue_2.7.14.js:11 TypeError: Cannot read properties of undefined (reading 'params')
+    at Cr.eval (eval at sc (vue_2.7.14.js:11:104811), <anonymous>:5:6141)
+    at t._render (vue_2.7.14.js:11:45499)
+    at Cr.r (vue_2.7.14.js:11:79396)
+    at t.get (vue_2.7.14.js:11:27998)
+    at t.run (vue_2.7.14.js:11:28731)
+    at Ye (vue_2.7.14.js:11:18719)
+    at Array.<anonymous> (vue_2.7.14.js:11:23024)
+    at _n (vue_2.7.14.js:11:22424)
